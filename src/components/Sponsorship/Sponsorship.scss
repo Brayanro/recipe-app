@@ -1,0 +1,64 @@
+.sponsorship {
+  background: transparent linear-gradient(180deg, #C2E3F3 0%, #6AA3C1 100%) 0% 0% no-repeat padding-box;
+  box-shadow: 4px 6px 23px #A9A9A911;
+  height: 167px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin-top: 100px;
+  margin-bottom: 20px;
+
+  @media (max-width: 1024px) {
+    height: 116px;
+  }
+
+  @media (max-width: 500px) {
+    height: 70px;
+  }
+
+  &__title {
+    font-family: var(--font-secondary);
+    font-size: 56px;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    margin-left: 15%;
+
+    @media (max-width: 1024px) {
+      font-size: 39px;
+      margin-left: 5%;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 23px;
+      margin-left: 1%;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+    width: 536px;
+    height: 248px;
+
+    @media (max-width: 1024px) {
+      width: 379px;
+      height: 175px;
+      right: 5%;
+    }
+
+    @media (max-width: 500px) {
+      width: 228px;
+      height: 106px;
+      right: 0%;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  }
+}

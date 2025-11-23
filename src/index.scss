@@ -1,3 +1,71 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins-latin-300-normal.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins-latin-500-normal.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins-latin-600-normal.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins-latin-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins-latin-900-normal.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-primary: 'Poppins', system-ui, sans-serif;
+  --font-secondary: 'Brush Script MT', cursive;
+  
+  --color-primary: #D84D4D;
+  --color-text-secondary: #425966;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-primary);
+  scroll-behavior: smooth;
+  background: #fff;
+}
+
 body {
-  background-color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
 }
