@@ -3,7 +3,7 @@ import icDifficulty from "../../assets/dificultad.svg";
 import icHeart from "../../assets/ic_heart.svg";
 import icHeartOutline from "../../assets/ic_heart_outline.svg";
 import icStar from "../../assets/ic_star.svg";
-import icPortion from "../../assets/tamaño.svg";
+import icPortion from "../../assets/portion.svg";
 import icTime from "../../assets/tiempo.svg";
 import {
   FavoritesContext,
