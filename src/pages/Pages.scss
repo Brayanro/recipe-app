@@ -1,0 +1,31 @@
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  padding-bottom: 40px;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    gap: 80px 20px;
+    
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 80px 30px;
+    }
+    
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 60px 30px;
+    }
+  }
+
+  &__error {
+    text-align: center;
+    color: var(--color-primary);
+    font-family: var(--font-primary);
+    font-size: 18px;
+    margin-top: 40px;
+  }
+}

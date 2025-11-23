@@ -1,0 +1,14 @@
+.page-title {
+  font-family: var(--font-secondary);
+  font-size: 67px;
+  font-weight: 400;
+  color: var(--color-primary);
+  text-align: left;
+  margin-bottom: 60px;
+  margin-left: 20px;
+
+  @media (max-width: 1024px) {
+    margin-left: 20px;
+    font-size: 54px;
+  }
+}

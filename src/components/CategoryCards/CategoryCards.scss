@@ -43,7 +43,8 @@
     transition: transform 0.2s;
     flex: 1; 
     min-width: 0; 
-    height: 85px; 
+    height: 85px;
+    text-decoration: none;
 
     @media (max-width: 767px) {
       height: 92px; 
@@ -51,6 +52,12 @@
 
     &:hover {
       transform: translateY(-2px);
+    }
+
+    &--active {
+      .category-cards__card-title {
+        color: var(--color-primary);
+      }
     }
 
     &-icon {
@@ -72,6 +79,7 @@
       font-weight: 500;
       color: var(--color-text-secondary);
       margin: 0;
+      transition: color 0.3s ease;
     }
   }
 }

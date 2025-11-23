@@ -52,14 +52,34 @@
       color: var(--color-text-secondary);
       cursor: pointer;
       font-weight: 500;
+    }
 
-      &:first-child {
-        color: var(--color-primary);
-      }
+    &-link {
+      font-family: var(--font-primary);
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: 500;
+      transition: color 0.3s ease;
 
       &:hover {
         color: var(--color-primary);
       }
+
+      &--active {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  &__mobile-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+    @media (min-width: 1024px) {
+      display: none;
     }
   }
 
@@ -68,10 +88,6 @@
     width: 25px;
     height: 25px;
     cursor: pointer;
-
-    @media (min-width: 1024px) {
-      display: none;
-    }
 
     img {
       width: 100%;
