@@ -1,73 +1,182 @@
-# React + TypeScript + Vite
+# Recipe App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una aplicación web moderna para explorar y gestionar recetas de cocina, construida con React y TypeScript. Permite a los usuarios navegar por diferentes categorías de recetas, marcar sus favoritas y visualizar información detallada de cada plato.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Diseño Responsive**: Optimizado para dispositivos móviles, tablets y desktop
+- **Sistema de Favoritos**: Guarda tus recetas favoritas usando Context API y localStorage
+- **Categorías de Recetas**: Vegetarianos, Platos Principales, Tortas, Comida Rápida, Menú Niños y Sopas
+- **Interfaz Moderna**: Diseño atractivo con animaciones y efectos hover
+- **Integración con API**: Obtiene recetas de la API de Spoonacular
+- **Carga Optimizada**: Skeleton loaders y manejo de estados de carga/error
 
-## React Compiler
+## Tecnologías Utilizadas
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+### Frontend
 
-## Expanding the ESLint configuration
+- **React 19** - Biblioteca de JavaScript para construir interfaces de usuario
+- **TypeScript** - Superset de JavaScript con tipado estático
+- **Sass (SCSS)** - Preprocesador CSS para estilos más mantenibles
+- **Vite** - Build tool y dev server ultrarrápido
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Gestión de Estado y Datos
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **React Query (@tanstack/react-query)** - Gestión de estado del servidor, caché y sincronización de datos
+- **Context API** - Gestión de estado global para favoritos
+- **Axios** - Cliente HTTP para peticiones a la API
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Enrutamiento
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **React Router v7** - Navegación y enrutamiento declarativo
+
+### Containerización
+
+- **Docker** - Containerización de la aplicación
+- **Nginx** - Servidor web para producción
+
+## Requisitos Previos
+
+- Node.js 22 o superior
+- npm o yarn
+- Docker (opcional, para containerización)
+
+## Instalación y Configuración
+
+### 1. Clonar el repositorio
+
+```bash
+git clone <url-del-repositorio>
+cd recipe-app
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Instalar dependencias
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### 3. Configurar variables de entorno
+
+Crea un archivo `.env` en la raíz del proyecto:
+
+```bash
+VITE_API_KEY=tu_api_key_de_spoonacular
+```
+
+> **Nota**: Obtén tu API key gratuita en [Spoonacular API](https://spoonacular.com/food-api)
+
+## Comandos de Desarrollo
+
+### Ejecutar en modo desarrollo
+
+```bash
+npm run dev
+```
+
+La aplicación estará disponible en `http://localhost:5173`
+
+### Compilar para producción
+
+```bash
+npm run build
+```
+
+### Previsualizar build de producción
+
+```bash
+npm run preview
+```
+
+### Ejecutar linter
+
+```bash
+npm run lint
+```
+
+## Docker
+
+### Construir la imagen de Docker
+
+```bash
+docker build -t recipe-app .
+```
+
+### Ejecutar el contenedor
+
+```bash
+docker run -p 8080:8080 recipe-app
+```
+
+La aplicación estará disponible en `http://localhost:8080`
+
+## Estructura del Proyecto
+
+```
+recipe-app/
+├── src/
+│   ├── assets/          # Imágenes, íconos y recursos estáticos
+│   ├── components/      # Componentes reutilizables
+│   │   ├── Banner/
+│   │   ├── CategoryCards/
+│   │   ├── Navbar/
+│   │   ├── NewRecipes/
+│   │   ├── PageTitle/
+│   │   ├── RecipeCard/
+│   │   └── Sponsorship/
+│   ├── context/         # Context API (FavoritesContext)
+│   ├── pages/           # Páginas de la aplicación
+│   │   ├── Home.tsx
+│   │   ├── Vegetarians.tsx
+│   │   ├── MainDishes.tsx
+│   │   ├── Cakes.tsx
+│   │   ├── FastFood.tsx
+│   │   ├── KidsMenu.tsx
+│   │   ├── Soups.tsx
+│   │   └── Favorites.tsx
+│   ├── services/        # Servicios de API (recipeService)
+│   ├── types/           # Definiciones de TypeScript
+│   ├── utils/           # Utilidades y datos estáticos
+│   ├── App.tsx          # Componente principal
+│   ├── main.tsx         # Punto de entrada
+│   └── index.scss       # Estilos globales
+├── nginx/               # Configuración de Nginx
+├── Dockerfile           # Configuración de Docker
+├── package.json         # Dependencias y scripts
+└── README.md           # Este archivo
+```
+
+## Características de Diseño
+
+- **Metodología BEM**: Nomenclatura de clases CSS consistente
+- **Variables CSS**: Colores y fuentes centralizadas
+- **Animaciones Suaves**: Transiciones y efectos hover
+- **Grid Responsive**: Layout adaptable a diferentes tamaños de pantalla
+- **Skeleton Loaders**: Indicadores visuales de carga
+
+## Funcionalidades Principales
+
+### Sistema de Favoritos
+
+- Marca/desmarca recetas como favoritas
+- Persistencia en localStorage
+- Página dedicada para ver todas las favoritas
+- Ícono de corazón interactivo
+
+### Navegación por Categorías
+
+- Vegetarianos
+- Platos Principales
+- Tortas
+- Comida Rápida
+- Menú Niños
+- Sopas
+
+### Detalles de Recetas
+
+- Imagen del plato
+- Nombre de la receta
+- Calificación
+- Tamaño de porción
+- Tiempo de preparación
+- Nivel de dificultad
